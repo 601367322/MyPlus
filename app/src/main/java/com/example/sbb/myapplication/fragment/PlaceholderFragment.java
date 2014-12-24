@@ -9,6 +9,7 @@ import com.example.sbb.myapplication.R;
 import com.example.sbb.myapplication.activity.MainActivity;
 import com.example.sbb.myapplication.adapter.HomeAdapter;
 import com.example.sbb.myapplication.base.BaseFragment;
+import com.example.sbb.myapplication.custom.MyRecyclerView;
 import com.example.sbb.myapplication.custom.MySwipeRefreshLayout;
 
 import org.androidannotations.annotations.EFragment;
@@ -25,7 +26,7 @@ public class PlaceholderFragment extends BaseFragment implements SwipeRefreshLay
     public MySwipeRefreshLayout swipeRefreshLayout;
 
     @ViewById(R.id.listview)
-    public RecyclerView recyclerView;
+    public MyRecyclerView recyclerView;
 
     @FragmentArg
     public int selectNum;
@@ -38,6 +39,17 @@ public class PlaceholderFragment extends BaseFragment implements SwipeRefreshLay
             list.add(String.valueOf(i));
         }
         recyclerView.setAdapter(new HomeAdapter(list, getActivity()));
+        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int scrollState) {
+            }
+
+            @Override
+            public void onScrolled(RecyclerView r, int i, int i2) {
+                System.out.println("First: " + recyclerView.getFirstVisiblePosition());
+                System.out.println("Count: " + recyclerView.getChildCount());
+            }
+        });
     }
 
     @Override

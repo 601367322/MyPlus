@@ -1,7 +1,6 @@
 package com.example.sbb.myapplication.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import com.example.sbb.myapplication.R;
 import com.example.sbb.myapplication.base.BaseAdapter;
 
-import org.lucasr.twowayview.widget.StaggeredGridLayoutManager;
+import org.lucasr.twowayview.widget.SpannableGridLayoutManager;
 
 import java.util.List;
 
@@ -73,18 +72,17 @@ public class HomeAdapter extends BaseAdapter<String> {
 
     @Override
     public void onBindFooterView(RecyclerView.ViewHolder holder, int position) {
-        final StaggeredGridLayoutManager.LayoutParams lp =
-                (StaggeredGridLayoutManager.LayoutParams) holder.itemView.getLayoutParams();
+        final SpannableGridLayoutManager.LayoutParams lp =
+                (SpannableGridLayoutManager.LayoutParams) holder.itemView.getLayoutParams();
         final int size = context.getResources().getDisplayMetrics().widthPixels;
-        lp.span = 2;
-        lp.width = size;
+        lp.colSpan = 3;
         holder.itemView.setLayoutParams(lp);
     }
 
     @Override
     public void onBindBasicItemView(RecyclerView.ViewHolder holder, int position) {
         ((ViewHolder)holder).textview.setText(getItem(position));
-        ((ViewHolder)holder).textview.setLayoutParams(new CardView.LayoutParams(CardView.LayoutParams.MATCH_PARENT, (position + 1) * 50));
+//        ((ViewHolder)holder).textview.setLayoutParams(new CardView.LayoutParams(CardView.LayoutParams.MATCH_PARENT, (position + 1) * 50));
     }
 
     @Override

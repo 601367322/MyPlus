@@ -10,6 +10,6 @@
         android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:twowayview_numColumns="2"
-        app:twowayview_layoutManager="StaggeredGridLayoutManager"/>
+        app:twowayview_numColumns="3"
+        app:twowayview_layoutManager="SpannableGridLayoutManager"/>
 </com.example.sbb.myapplication.custom.MySwipeRefreshLayout>
