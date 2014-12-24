@@ -1,14 +1,13 @@
 package com.example.sbb.myapplication.base;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
 /**
  * Created by Administrator on 2014/12/22.
  */
-public abstract class BaseAdapter<E, T extends RecyclerView.ViewHolder> extends HeaderRecyclerViewAdapterV2<T> {
+public abstract class BaseAdapter<E> extends HeaderRecyclerViewAdapterV2{
 
     public List<E> list;
     public Context context;
@@ -18,11 +17,6 @@ public abstract class BaseAdapter<E, T extends RecyclerView.ViewHolder> extends 
             return list.get(position);
         }
         return null;
-    }
-
-    @Override
-    public int getItemCount() {
-        return list == null ? 0 : list.size();
     }
 
     public void setList(List<E> list) {
@@ -41,6 +35,6 @@ public abstract class BaseAdapter<E, T extends RecyclerView.ViewHolder> extends 
 
     @Override
     public int getBasicItemCount() {
-        return getItemCount();
+        return list == null ? 0 : list.size();
     }
 }

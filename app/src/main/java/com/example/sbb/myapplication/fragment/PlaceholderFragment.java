@@ -34,7 +34,7 @@ public class PlaceholderFragment extends BaseFragment implements SwipeRefreshLay
     public void init() {
         swipeRefreshLayout.setOnRefreshListener(this);
         List<String> list = new ArrayList<String>();
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 20; i++) {
             list.add(String.valueOf(i));
         }
         recyclerView.setAdapter(new HomeAdapter(list, getActivity()));

@@ -23,13 +23,13 @@ import android.view.ViewGroup;
  * <p/>
  * TOTALLY UNTESTED - USE WITH CARE - HAVE FUN :)
  */
-public abstract class HeaderRecyclerViewAdapterV2<T extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<T> {
+public abstract class HeaderRecyclerViewAdapterV2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int TYPE_HEADER = Integer.MIN_VALUE;
     private static final int TYPE_FOOTER = Integer.MIN_VALUE + 1;
     private static final int TYPE_ADAPTEE_OFFSET = 2;
 
     @Override
-    public T onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_HEADER) {
             return onCreateHeaderViewHolder(parent, viewType);
         } else if (viewType == TYPE_FOOTER) {
@@ -39,7 +39,7 @@ public abstract class HeaderRecyclerViewAdapterV2<T extends RecyclerView.ViewHol
     }
 
     @Override
-    public void onBindViewHolder(T holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (position == 0 && holder.getItemViewType() == TYPE_HEADER) {
             onBindHeaderView(holder, position);
         } else if (position == getBasicItemCount() && holder.getItemViewType() == TYPE_FOOTER) {
@@ -77,17 +77,17 @@ public abstract class HeaderRecyclerViewAdapterV2<T extends RecyclerView.ViewHol
 
     public abstract boolean useHeader();
 
-    public abstract T onCreateHeaderViewHolder(ViewGroup parent, int viewType);
+    public abstract RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType);
 
     public abstract void onBindHeaderView(RecyclerView.ViewHolder holder, int position);
 
     public abstract boolean useFooter();
 
-    public abstract T onCreateFooterViewHolder(ViewGroup parent, int viewType);
+    public abstract RecyclerView.ViewHolder onCreateFooterViewHolder(ViewGroup parent, int viewType);
 
     public abstract void onBindFooterView(RecyclerView.ViewHolder holder, int position);
 
-    public abstract T onCreateBasicItemViewHolder(ViewGroup parent, int viewType);
+    public abstract RecyclerView.ViewHolder onCreateBasicItemViewHolder(ViewGroup parent, int viewType);
 
     public abstract void onBindBasicItemView(RecyclerView.ViewHolder holder, int position);
 

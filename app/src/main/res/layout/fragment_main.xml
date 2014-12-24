@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <org.lucasr.twowayview.widget.TwoWayView
+    <com.example.sbb.myapplication.custom.MyRecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/listview"
         android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:twowayview_layoutManager="ListLayoutManager"/>
+        app:twowayview_numColumns="2"
+        app:twowayview_layoutManager="StaggeredGridLayoutManager"/>
 </com.example.sbb.myapplication.custom.MySwipeRefreshLayout>
