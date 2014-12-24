@@ -3,7 +3,6 @@ package com.example.sbb.myapplication.fragment;
 import android.app.Activity;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.sbb.myapplication.R;
@@ -33,16 +32,12 @@ public class PlaceholderFragment extends BaseFragment implements SwipeRefreshLay
 
     @Override
     public void init() {
-        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(manager);
         swipeRefreshLayout.setOnRefreshListener(this);
         List<String> list = new ArrayList<String>();
         for (int i = 0; i < 50; i++) {
             list.add(String.valueOf(i));
         }
         recyclerView.setAdapter(new HomeAdapter(list, getActivity()));
-
-        recyclerView.getAdapter().notifyDataSetChanged();
     }
 
     @Override

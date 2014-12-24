@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
+    <org.lucasr.twowayview.widget.TwoWayView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/listview"
+        android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:padding="32dp"></android.support.v7.widget.RecyclerView>
+        app:twowayview_layoutManager="ListLayoutManager"/>
 </com.example.sbb.myapplication.custom.MySwipeRefreshLayout>

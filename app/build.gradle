@@ -19,6 +19,9 @@ android {
         }
     }
 }
+repositories {
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -29,6 +32,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:6.0.0'
     apt "org.androidannotations:androidannotations:3.2"
     compile 'org.androidannotations:androidannotations-api:3.2'
+    compile 'org.lucasr.twowayview:core:1.0.0-SNAPSHOT@aar'
+    compile 'org.lucasr.twowayview:layouts:1.0.0-SNAPSHOT@aar'
 }
 apt {
     arguments {

@@ -32,9 +32,6 @@ public class HomeAdapter extends BaseAdapter<String, HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.textview.setText(getItem(position));
-
-//        holder.textview.setLayoutParams(new CardView.LayoutParams(CardView.LayoutParams.MATCH_PARENT,position*100));
-
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -46,5 +43,50 @@ public class HomeAdapter extends BaseAdapter<String, HomeAdapter.ViewHolder> {
             super(itemView);
             ButterKnife.inject(this, itemView);
         }
+    }
+
+    @Override
+    public boolean useHeader() {
+        return false;
+    }
+
+    @Override
+    public ViewHolder onCreateHeaderViewHolder(ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindHeaderView(RecyclerView.ViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public boolean useFooter() {
+        return false;
+    }
+
+    @Override
+    public ViewHolder onCreateFooterViewHolder(ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindFooterView(RecyclerView.ViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public ViewHolder onCreateBasicItemViewHolder(ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindBasicItemView(RecyclerView.ViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getBasicItemType(int position) {
+        return 0;
     }
 }
