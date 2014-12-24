@@ -32,6 +32,9 @@ public class HomeAdapter extends BaseAdapter<String, HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.textview.setText(getItem(position));
+
+//        holder.textview.setLayoutParams(new CardView.LayoutParams(CardView.LayoutParams.MATCH_PARENT,position*100));
+
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
