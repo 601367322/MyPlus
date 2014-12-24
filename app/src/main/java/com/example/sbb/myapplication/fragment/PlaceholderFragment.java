@@ -8,12 +8,16 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.sbb.myapplication.R;
 import com.example.sbb.myapplication.activity.MainActivity;
+import com.example.sbb.myapplication.adapter.HomeAdapter;
 import com.example.sbb.myapplication.base.BaseFragment;
 import com.example.sbb.myapplication.custom.MySwipeRefreshLayout;
 
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.ViewById;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @EFragment(R.layout.fragment_main)
 public class PlaceholderFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -29,8 +33,14 @@ public class PlaceholderFragment extends BaseFragment implements SwipeRefreshLay
 
     @Override
     public void init() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(manager);
         swipeRefreshLayout.setOnRefreshListener(this);
+        List<String> list = new ArrayList<String>();
+        for (int i = 0; i < 20; i++) {
+            list.add(String.valueOf(i));
+        }
+        recyclerView.setAdapter(new HomeAdapter(list, getActivity()));
     }
 
     @Override
